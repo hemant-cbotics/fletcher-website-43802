@@ -1,0 +1,39 @@
+@import "../../assets/styles/colors.scss";
+
+#header,
+#footer {
+  align-items: center;
+  background-color: $colorDarkBg;
+  color: $colorWhite;
+  display: flex;
+  height: 120px;
+  justify-content: center;
+}
+
+#header {
+  .equal-side {
+    width: 180px;
+
+    &:last-child {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .btn {
+    background-color: transparent;
+    border: 1px solid $colorDarkBorder;
+    font-size: 18px;
+    height: 47px;
+    width: 150px;
+
+    &:hover {
+      background-color: $colorAccent;
+      color: $colorText;
+    }
+  }
+}
+
+#main {
+  flex-grow: 1;
+}
