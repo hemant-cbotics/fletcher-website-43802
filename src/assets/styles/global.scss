@@ -1,5 +1,14 @@
+@import "../../assets/styles/colors.scss";
+
+:root {
+  --header-height: 120px;
+  --home-section-vpad: 80px;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
 html,
 body {
+  color: $colorText;
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;

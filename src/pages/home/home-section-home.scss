@@ -1,0 +1,89 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
+.home-section {
+  &.section__home {
+    .callout {
+      background-color: $colorWhite;
+      border-radius: 24px 24px 24px 0;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0 auto 24px 0;
+      padding: 16px;
+    }
+    h1 {
+      color: $colorTextDarkGrey;
+      font-family: var(--font-montserrat);
+      font-size: 38px;
+      @include fw(bold);
+      line-height: 60px;
+      margin: 0;
+
+      em {
+        color: $colorRed;
+        font-style: normal;
+      }
+    }
+
+    p {
+      font-size: 22px;
+      line-height: 32px;
+      margin: 24px 0 0;
+    }
+
+    .btn-group {
+      margin: 40px auto 0;
+
+      .btn {
+        background: transparent none center center no-repeat;
+        border: 0;
+        height: 62px;
+        width: 211px;
+
+        & + .btn {
+          margin-left: 20px;
+        }
+      }
+      .apple {
+        background-image: url(../../assets/graphics/png/get-mobile-app-apple.png);
+      }
+      .google {
+        background-image: url(../../assets/graphics/png/get-mobile-app-google.png);
+        margin-left: 20px;
+      }
+    }
+
+    .iphone {
+      display: flex;
+      flex-direction: column;
+      // height: 556px;
+      margin: 0 auto;
+      position: relative;
+      // width: 276px;
+      max-width: 276px;
+      padding-top: 90%;
+      width: 36vh;
+
+      &::before {
+        background: transparent url(../../assets/graphics/png/mobile-app-screen.png) center top / contain no-repeat;
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+    .aura {
+      background: transparent url(../../assets/graphics/svg/mobile-app-aura.svg) center bottom / contain no-repeat;
+      bottom: -15%;
+      left: -28%;
+      padding-top: 100%;
+      position: absolute;
+      right: -28%;
+      top: 0;
+      z-index: 0;
+    }
+  }
+}
