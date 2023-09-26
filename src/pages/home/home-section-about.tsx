@@ -1,26 +1,28 @@
-import { Button, ButtonGroup, Card, Col, Row } from "react-bootstrap";
-import ImageAbout from "../../assets/graphics/png/graphic-about.png"
+import { Col, Row } from "react-bootstrap";
+import ImageAbout from "../../assets/graphics/png/graphic-about.png";
+import MobileAppCtas from "../../components/mobileAppCtas";
+import { useAppContext } from "../../contexts/app-context";
 
 import "./home-section-about.scss";
 
 const HomeSectionContentAbout = () => {
+  const { homeData } = useAppContext();
+  const sectionData = homeData?.data?.sections?.about;
+
   return (
     <>
       <Row>
         <Col lg={6}>
-          <h2 data-with-accent="left">About Fletcher is simply dummy text of the printing and</h2>
+          <h2 data-with-accent="left">{sectionData?.title}</h2>
           <ul>
-            <li>Lorem Ipsum is simply dummy text of the printing and typesetting</li>
-            <li>Lorem Ipsum is simply dummy text of the printing and typesetting</li>
-            <li>Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+            {sectionData?.contents?.map((content, i) => (
+              <li key={i}>{content}</li>
+            ))}
           </ul>
-          <ButtonGroup className="ctas" aria-label="Get the Fletcher mobile app">
-            <Button className="apple" aria-label="Go to the App Store"></Button>
-            <Button className="google" aria-label="Go to the Play Store"></Button>
-          </ButtonGroup>
+          <MobileAppCtas />
         </Col>
         <Col lg={6}>
-          <img src={ImageAbout} alt="" />
+          <img src={sectionData?.image || ImageAbout} alt="" />
         </Col>
       </Row>
     </>

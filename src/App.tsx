@@ -1,5 +1,6 @@
 import { RouterProvider } from "react-router-dom";
 import router from "./utils/navigation/router";
+import { AppContextProvider } from "./contexts/app-context";
 import { ToastContainer } from "react-toastify";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,8 +10,10 @@ import "./components/layout/layout.scss";
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
-      <ToastContainer position="top-right" theme="colored" />
+      <AppContextProvider>
+        <RouterProvider router={router} />
+        <ToastContainer position="top-right" theme="colored" />
+      </AppContextProvider>
     </>
   );
 }

@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import AppPageLayout from "../../components/layout/page";
-import { fetchHomeContent } from "../../network/apis";
 import HomeSection from "./components/homeSection";
 import HomeSectionContentAbout from "./home-section-about";
 import HomeSectionContentFaq from "./home-section-faq";
@@ -10,18 +8,6 @@ import HomeSectionContentServices from "./home-section-services";
 import "./home.scss";
 
 const ScreenHome = () => {
-
-  const [homeData, setHomeData] = useState()
-
-  const fetchHomeData = async () => {
-    const data = await fetchHomeContent()
-    setHomeData(data)
-  }
-
-  useEffect(() => {
-    fetchHomeData()
-  }, [])
-
   return (
     <>
       <AppPageLayout pageName="home">

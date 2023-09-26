@@ -49,7 +49,7 @@
       padding-top: 90%;
       width: 36vh;
 
-      &::before {
+      .phone {
         background: transparent url(../../assets/graphics/png/mobile-app-screen.png) center top / contain no-repeat;
         content: "";
         height: 100%;
