@@ -1,0 +1,57 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
+.home-section {
+  &.section__faq {
+    h2.section-heading {
+      margin: 0 auto 50px;
+    }
+
+    .accordion {
+      --app-accordion-border-radius: 8px;
+
+      &-item:first-of-type,
+      &-item {
+        --bs-accordion-border-radius: var(--app-accordion-border-radius);
+        border: 0;
+
+        &:nth-child(n + 1) {
+          margin-top: 15px;
+        }
+      }
+      &-item,
+      &-button:not(.collapsed),
+      &-button.collapsed {
+        --bs-accordion-inner-border-radius: var(--app-accordion-border-radius);
+        background-color: $colorAccordionBg;
+        color: $colorTextGrey;
+      }
+      &-button {
+        color: $colorWhite;
+        line-height: 1em;
+        padding: 19px 22px;
+
+        &:not(.collapsed) {
+          border-bottom: 0;
+          box-shadow: none;
+          position: relative;
+
+          &:not(:focus)::before {
+            background-color: #FFFFFF33;
+            content: '';
+            display: block;
+            height: 1px;
+            left: 22px;
+            position: absolute;
+            right: 22px;
+            top: 100%;
+          }
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 1px #FFFFFF33;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,10 @@
 @import "../../assets/styles/colors.scss";
 
+.page-home {
+  background: $colorDarkBg url(../../assets/graphics/png/bg-homepage.png) center var(--home-hero-height) / contain no-repeat;
+  color: $colorWhite;
+}
+
 .home-section {
   display: flex;
   flex-direction: column;
@@ -12,11 +17,32 @@
 
   &.section__home {
     background-color: $colorAccent;
-    min-height: 100vh;
+    color: $colorText;
+    min-height: var(--home-hero-height);
+    overflow: hidden;
   }
 
-  &.section__services {
-    background-color: $colorDarkBg;
-    color: $colorWhite;
+  &.section__about {
+    padding-bottom: calc(var(--home-section-vpad) + 44px);
+  }
+
+  .btn-group {
+    & > :not(.btn-check:first-child) + .btn {
+      margin-left: 20px;
+    }
+    
+    .btn {
+      background: transparent none center center no-repeat;
+      border: 0;
+      height: 62px;
+      width: 211px;
+    }
+    .apple {
+      background-image: url(../../assets/graphics/png/get-mobile-app-apple.png);
+    }
+    .google {
+      background-image: url(../../assets/graphics/png/get-mobile-app-google.png);
+      margin-left: 20px;
+    }
   }
 }

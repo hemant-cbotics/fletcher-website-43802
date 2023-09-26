@@ -1,81 +1,41 @@
-import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import AppPageLayout from "../../components/layout/page";
+import { fetchHomeContent } from "../../network/apis";
 import HomeSection from "./components/homeSection";
+import HomeSectionContentAbout from "./home-section-about";
+import HomeSectionContentFaq from "./home-section-faq";
+import HomeSectionContentHome from "./home-section-home";
+import HomeSectionContentServices from "./home-section-services";
 
 import "./home.scss";
-import "./home-section-home.scss";
-import HomeSectionContentHome from "./home-section-home";
 
 const ScreenHome = () => {
+
+  const [homeData, setHomeData] = useState()
+
+  const fetchHomeData = async () => {
+    const data = await fetchHomeContent()
+    setHomeData(data)
+  }
+
+  useEffect(() => {
+    fetchHomeData()
+  }, [])
+
   return (
     <>
-      <AppPageLayout>
+      <AppPageLayout pageName="home">
         <HomeSection name="home">
           <HomeSectionContentHome />
         </HomeSection>
         <HomeSection name="services">
-          <p>ONE</p>
-          <p>ONE</p>
-          <p>ONE</p>
-          <p>ONE</p>
-          <p>ONE</p>
-          <p>ONE</p>
-          <p>ONE</p>
-          <p>ONE</p>
-          <p>ONE</p>
-          <p>ONE</p>
+          <HomeSectionContentServices />
         </HomeSection>
         <HomeSection name="about">
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
-          <p>TWO</p>
+          <HomeSectionContentAbout />
         </HomeSection>
         <HomeSection name="faq">
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
-          <p>THREE</p>
+          <HomeSectionContentFaq />
         </HomeSection>
       </AppPageLayout>
     </>

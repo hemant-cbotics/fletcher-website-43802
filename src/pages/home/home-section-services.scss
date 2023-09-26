@@ -1,0 +1,65 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
+.home-section {
+  &.section__services {
+    h2 {
+      font-size: 34px;
+      @include fw(semibold);
+      letter-spacing: -1px;
+      line-height: 51px;
+      margin: 0;
+    }
+
+    p.aside-h2 {
+      color: $colorTextNeutral;
+      font-size: 21px;
+      letter-spacing: -0.2px;
+      line-height: 34px;
+      margin: 0;
+    }
+
+    .cards-wrap {
+      margin-top: 77px;
+
+      .col {
+        &:nth-child(1) .card-icon {
+          background-image: url(../../assets/graphics/svg/services-icon-1.svg);
+        }
+        &:nth-child(2) .card-icon {
+          background-image: url(../../assets/graphics/svg/services-icon-2.svg);
+        }
+        &:nth-child(3) .card-icon {
+          background-image: url(../../assets/graphics/svg/services-icon-3.svg);
+        }
+      }
+    }
+
+    .card {
+      background-color: $colorCardBg;
+      border-radius: 10px;
+
+      &-icon {
+        --size: 70px;
+        background: $colorDarkerBg none center center no-repeat;
+        border-radius: var(--size);
+        height: var(--size);
+        width: var(--size);
+      }
+
+      &-title {
+        @include fw(bold);
+        font-size: 16px;
+        line-height: 24px;
+        margin: 15px 0 0;
+        text-transform: uppercase;
+      }
+      &-text {
+        font-size: 14px;
+        letter-spacing: -0.2px;
+        line-height: 22px;
+        margin: 10px 0 0;
+      }
+    }
+  }
+}

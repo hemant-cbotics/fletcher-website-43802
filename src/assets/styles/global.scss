@@ -4,6 +4,7 @@
   --header-height: 120px;
   --home-section-vpad: 80px;
   --font-montserrat: 'Montserrat', sans-serif;
+  --home-hero-height: 100vh;
 }
 
 html,
@@ -27,4 +28,30 @@ body {
 
 .btn {
   font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 2em;
+
+  &[data-with-accent] {
+    position: relative;
+
+    &:before {
+      background-color: $colorAccent;
+      border-radius: 2px;
+      content: '';
+      display: block;
+      height: 4px;
+      max-width: 100%;
+      position: absolute;
+      top: 100%;
+      width: 63px;
+    }
+  }
+  &[data-with-accent="left"]::before {
+    left: 0;
+  }
+  &[data-with-accent="right"]::before {
+    right: 0;
+  }
 }

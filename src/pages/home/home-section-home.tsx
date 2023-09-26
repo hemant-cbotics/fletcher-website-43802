@@ -1,5 +1,7 @@
 import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
 
+import "./home-section-home.scss";
+
 const HomeSectionContentHome = () => {
   return (
     <Row className="flex-grow-1">

@@ -4,18 +4,21 @@
 .home-section {
   &.section__home {
     .callout {
-      background-color: $colorWhite;
+      // background-color: $colorWhite;
       border-radius: 24px 24px 24px 0;
+      font-family: 'DM Sans', sans-serif;
       font-size: 16px;
       line-height: 24px;
       margin: 0 auto 24px 0;
-      padding: 16px;
+      // padding: 16px;
+      text-transform: uppercase;
     }
     h1 {
       color: $colorTextDarkGrey;
       font-family: var(--font-montserrat);
       font-size: 38px;
       @include fw(bold);
+      letter-spacing: -1px;
       line-height: 60px;
       margin: 0;
 
@@ -33,24 +36,6 @@
 
     .btn-group {
       margin: 40px auto 0;
-
-      .btn {
-        background: transparent none center center no-repeat;
-        border: 0;
-        height: 62px;
-        width: 211px;
-
-        & + .btn {
-          margin-left: 20px;
-        }
-      }
-      .apple {
-        background-image: url(../../assets/graphics/png/get-mobile-app-apple.png);
-      }
-      .google {
-        background-image: url(../../assets/graphics/png/get-mobile-app-google.png);
-        margin-left: 20px;
-      }
     }
 
     .iphone {
