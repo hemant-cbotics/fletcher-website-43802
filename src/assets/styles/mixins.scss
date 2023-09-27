@@ -1,3 +1,5 @@
+@import "./colors.scss";
+
 @mixin fw($weight: 'regular') {
   @if $weight == 'regular' {
     font-weight: 400;
@@ -8,4 +10,16 @@
   @else if $weight == 'bold' {
     font-weight: 700;
   }
+}
+
+@mixin headingAccent {
+  background-color: $colorAccent;
+  border-radius: 2px;
+  content: '';
+  display: block;
+  height: 4px;
+  max-width: 100%;
+  position: absolute;
+  top: 100%;
+  width: 63px;
 }

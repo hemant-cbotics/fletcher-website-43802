@@ -1,0 +1,51 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
+.page-content {
+  color: $colorPageContentText;
+  font-size: 18px;
+  line-height: 30px;
+
+  a {
+    color: $colorPageContentTextAnchor;
+  }
+
+  strong,
+  b {
+    color: $colorPageContentTextBold;
+    @include fw(bold);
+  }
+
+  h1 {
+    color: $colorTextDarkGrey;
+    font-family: var(--font-montserrat);
+    margin: 0 0 56px;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $colorBlack;
+    @include fw(bold);
+    letter-spacing: -1px;
+    line-height: 1.8em;
+    margin: 1.25em 0 0.75em;
+  }
+
+  h2,
+  h3 {
+    position: relative;
+
+    &:before {
+      @include headingAccent;
+      left: 0;
+    }
+  }
+
+  .container {
+    padding-bottom: 100px;
+    padding-top: 100px;
+  }
+}

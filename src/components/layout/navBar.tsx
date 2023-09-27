@@ -11,12 +11,14 @@ type TAppNavBarLink = {
 type TAppNavBarProps = {
   wrapperId: string;
   smoothLinks?: boolean;
+  smoothLinksOnClick?: any;
   links?: TAppNavBarLink[] | string[];
 };
 
 const AppNavBar = ({
   wrapperId,
   smoothLinks = false,
+  smoothLinksOnClick = () => {},
   links,
 }: TAppNavBarProps) => {
   const navigate = useNavigate();
@@ -27,16 +29,20 @@ const AppNavBar = ({
         <React.Fragment key={i}>
           {!!smoothLinks ? (
             <Link
+              className="clickable"
               to={`home-section__${`${link}`.toLowerCase()}`}
               activeClass="active"
               spy={true}
               key={i}
+              title={`${link}`}
+              onClick={smoothLinksOnClick}
             >
               {`${link}`}
             </Link>
           ) : (
             <a
-              href="javascript: void(0)"
+              className="clickable"
+              // href="javascript: void(0)"
               title={(link as TAppNavBarLink)?.title}
               onClick={() => {
                 const { route, onClick } = link as TAppNavBarLink;

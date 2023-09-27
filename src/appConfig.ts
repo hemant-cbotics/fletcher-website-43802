@@ -1,3 +1,20 @@
+import { ROUTE_NAMES } from "./utils/navigation/routeNames";
+
+export const PAGES = {
+  TERMS: {
+    title: "Terms and conditions",
+    route: ROUTE_NAMES.termsPage,
+  },
+  PRIVACY: {
+    title: "Privacy policy",
+    route: ROUTE_NAMES.privacyPage,
+  },
+  CONTACT: {
+    title: "Contact us",
+    route: ROUTE_NAMES.contactPage,
+  },
+};
+
 export const APPCONFIG = {
   COLORS: {
     colorAccent: "#FABD00",
@@ -17,20 +34,16 @@ export const APPCONFIG = {
   },
 
   NAVS: {
-    TOPNAV: [
-      'Home',
-      'Services',
-      'About',
-      'FAQ'
-    ]
+    TOPNAV: ["Home", "Services", "About", "FAQ"],
+    BOTTOMNAV: [...[PAGES.TERMS], ...[PAGES.PRIVACY], ...[PAGES.CONTACT]],
   },
 
   API: {
-    BASEURL: '',
-      // window.location.href.indexOf("staging") > -1 ||
-      // window.location.href.indexOf("localhost") > -1
-      //   ? "https://fletcher-40835-staging.botics.co"
-      //   : "https://cold-morning-40835.botics.co",
+    BASEURL: "",
+    // window.location.href.indexOf("staging") > -1 ||
+    // window.location.href.indexOf("localhost") > -1
+    //   ? "https://fletcher-40835-staging.botics.co"
+    //   : "https://cold-morning-40835.botics.co",
     HOME_CONTENT: "/api/v1/website/home-page-content/",
   },
 };

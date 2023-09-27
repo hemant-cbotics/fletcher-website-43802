@@ -41,10 +41,12 @@
   }
 }
 
+nav#bottomnav,
 nav#topnav {
   display: flex;
 
   a {
+    color: $colorWhite;
     @include fw(semibold);
     text-decoration: none;
 
@@ -60,4 +62,17 @@ nav#topnav {
 
 #main {
   flex-grow: 1;
+
+  &:not(.page-home) {
+    padding-top: var(--header-height);
+  }
+}
+
+#footer {
+  .copyright {
+    color: $colorTextGrey;
+    font-size: 12px;
+    @include fw(semibold);
+    line-height: 18px;
+  }
 }
