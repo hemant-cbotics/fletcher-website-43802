@@ -4,6 +4,7 @@ import { AppContextProvider } from "./contexts/app-context";
 import { ToastContainer } from "react-toastify";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./assets/styles/global.scss";
 import "./components/layout/layout.scss";
 
