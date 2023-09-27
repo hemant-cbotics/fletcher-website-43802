@@ -7,12 +7,12 @@ import { useEffect, useState } from "react";
 import { fetchContent } from "../../network/apis";
 import { toast } from "react-toastify";
 
-const ScreenTerms = () => {
+const ScreenPrivacy = () => {
   const [pageData, setPageData] = useState<string>("");
 
   const fetchPageData = async () => {
     try {
-      const dataHtml = await fetchContent({ content: "terms" });
+      const dataHtml = await fetchContent({ content: "privacy" });
       const parser = new DOMParser();
       const html = parser.parseFromString(dataHtml, "text/html");
       setPageData(html.body.innerHTML);
@@ -27,12 +27,12 @@ const ScreenTerms = () => {
 
   return (
     <>
-      <AppPageLayout mainContentClassName="page-content" pageName="terms">
+      <AppPageLayout mainContentClassName="page-content" pageName="privacy">
         <Container>
           <Row>
             <Col>
               <div className="d-flex justify-content-center">
-                <h1 data-with-accent="center">{PAGES.TERMS.title}</h1>
+                <h1 data-with-accent="center">{PAGES.PRIVACY.title}</h1>
               </div>
               <div
                 className="page-content-html"
@@ -45,4 +45,4 @@ const ScreenTerms = () => {
     </>
   );
 };
-export default ScreenTerms;
+export default ScreenPrivacy;

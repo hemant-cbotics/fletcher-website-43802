@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { fetchHomeContent } from "../network/apis";
+import { fetchContent } from "../network/apis";
 import { THomeContentResponse } from "../types/apis";
 import { TAppContext } from "../types/contexts";
 
@@ -9,7 +9,7 @@ export const AppContextProvider = ({ children }: { children: any }) => {
   const [homeData, setHomeData] = useState<THomeContentResponse>();
 
   const fetchHomeData = async () => {
-    const data = await fetchHomeContent();
+    const data = await fetchContent({ content: 'home' });
     setHomeData(data);
   };
 

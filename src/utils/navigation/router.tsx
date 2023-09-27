@@ -4,6 +4,7 @@ import { ROUTE_NAMES } from "./routeNames"
 import ScreenHome from "../../pages/home/home"
 import ScreenFourOFour from "../../pages/fourOFour"
 import ScreenTerms from "../../pages/terms/terms"
+import ScreenPrivacy from "../../pages/privacy-policy/privacy-policy"
 
 const routes: RouteObject[] = [
   {
@@ -16,11 +17,11 @@ const routes: RouteObject[] = [
     index: true,
     element: <ScreenTerms />
   },
-  // {
-  //   path: ROUTE_NAMES.privacyPage,
-  //   index: true,
-  //   element: <ScreenHome />
-  // },
+  {
+    path: ROUTE_NAMES.privacyPage,
+    index: true,
+    element: <ScreenPrivacy />
+  },
   // {
   //   path: ROUTE_NAMES.contactPage,
   //   index: true,

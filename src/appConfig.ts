@@ -45,5 +45,7 @@ export const APPCONFIG = {
     //   ? "https://fletcher-40835-staging.botics.co"
     //   : "https://cold-morning-40835.botics.co",
     HOME_CONTENT: "/api/v1/website/home-page-content/",
+    TERMS: "/api/v1/content/terms-and-conditions/",
+    PRIVACY: "/api/v1/content/privacy-policy/",
   },
 };
