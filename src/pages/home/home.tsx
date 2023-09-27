@@ -1,3 +1,4 @@
+import { APPCONFIG } from "../../appConfig";
 import AppPageLayout from "../../components/layout/page";
 import HomeSection from "./components/homeSection";
 import HomeSectionContentAbout from "./home-section-about";
@@ -11,18 +12,14 @@ const ScreenHome = () => {
   return (
     <>
       <AppPageLayout pageName="home">
-        <HomeSection name="home">
-          <HomeSectionContentHome />
-        </HomeSection>
-        <HomeSection name="services">
-          <HomeSectionContentServices />
-        </HomeSection>
-        <HomeSection name="about">
-          <HomeSectionContentAbout />
-        </HomeSection>
-        <HomeSection name="faq">
-          <HomeSectionContentFaq />
-        </HomeSection>
+        {APPCONFIG.NAVS.TOPNAV.map((navItem, i) => (
+          <HomeSection name={navItem.toLowerCase()} key={i}>
+            {navItem === "Home" && <HomeSectionContentHome />}
+            {navItem === "Services" && <HomeSectionContentServices />}
+            {navItem === "About" && <HomeSectionContentAbout />}
+            {navItem === "FAQ" && <HomeSectionContentFaq />}
+          </HomeSection>
+        ))}
       </AppPageLayout>
     </>
   );

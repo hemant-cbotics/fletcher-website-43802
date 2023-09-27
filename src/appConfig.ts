@@ -15,6 +15,16 @@ export const APPCONFIG = {
     colorTextDarkGrey: "#2E363E",
     colorTextGrey: "#9CA3AF",
   },
+
+  NAVS: {
+    TOPNAV: [
+      'Home',
+      'Services',
+      'About',
+      'FAQ'
+    ]
+  },
+
   API: {
     BASEURL: '',
       // window.location.href.indexOf("staging") > -1 ||

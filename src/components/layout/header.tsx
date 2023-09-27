@@ -1,4 +1,5 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
+import { APPCONFIG } from "../../appConfig";
 import { ALL_GRAPHICS } from "../../assets";
 import AppNavBar from "./navBar";
 
@@ -12,7 +13,11 @@ const AppHeader = () => {
               <ALL_GRAPHICS.Logo />
             </div>
             <div className="flex-grow-1 d-flex justify-content-center">
-              <AppNavBar />
+              <AppNavBar
+                wrapperId="topnav"
+                smoothLinks={true}
+                links={APPCONFIG.NAVS.TOPNAV}
+              />
             </div>
             <div className="equal-side">
               <Button variant="secondary">Contact us</Button>
