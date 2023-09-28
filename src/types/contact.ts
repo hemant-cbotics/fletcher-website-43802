@@ -1,6 +1,11 @@
+export type TContactFormFieldData = {
+  touched: boolean;
+  value: string;
+};
+
 export type TContactFormData = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
+  name: TContactFormFieldData;
+  email: TContactFormFieldData;
+  subject: TContactFormFieldData;
+  message: TContactFormFieldData;
+};

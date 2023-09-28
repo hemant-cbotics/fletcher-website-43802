@@ -33,9 +33,14 @@
     font-size: 16px;
     height: 60px;
 
+    &:invalid,
+    &.is-invalid {
+      background-color: #FDD;
+    }
+
     &:focus {
       border-color: transparent;
-      box-shadow: 0 0 0 3px #FFFFFF66;
+      box-shadow: 0 0 0 3px #ffffff66;
     }
   }
 
@@ -57,7 +62,13 @@
     &:hover {
       background-color: $colorText;
       color: $colorAccent;
-      box-shadow: 0 0 0 3px #FFFFFF66;
+      box-shadow: 0 0 0 3px #ffffff66;
+    }
+
+    &:disabled {
+      background-color: $colorAccent;
+      color: $colorText;
+      opacity: 0.25;
     }
   }
 }
@@ -98,7 +109,7 @@
 
     &::before {
       background: transparent none center center no-repeat;
-      content: '';
+      content: "";
       display: block;
       height: $size;
       left: 0;
