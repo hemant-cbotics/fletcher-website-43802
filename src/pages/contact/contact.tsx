@@ -2,10 +2,16 @@ import AppPageLayout from "../../components/layout/page";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { PAGES } from "../../appConfig";
 import React, { useMemo, useState } from "react";
-import { TContactFormData, TContactFormFieldData } from "../../types/contact";
+import {
+  TContactFormData,
+  TContactFormFieldData,
+  TContactFormFieldName,
+} from "../../types/contact";
 import { useAppContext } from "../../contexts/app-context";
 
 import "./contact.scss";
+import { submitContactDetails } from "../../network/apis";
+import { toast } from "react-toastify";
 
 const ScreenContact = () => {
   const { homeData } = useAppContext();
@@ -22,15 +28,16 @@ const ScreenContact = () => {
     message: defaultFormFieldData,
   };
   const [formData, setFormData] = useState<TContactFormData>(defaultFormData);
+  const [formIsBeingSubmitted, setFormIsBeingSubmitted] =
+    useState<boolean>(false);
 
-  type TFieldName = "name" | "email" | "subject" | "message";
   type FormControlElement =
     | HTMLInputElement
     | HTMLSelectElement
     | HTMLTextAreaElement;
   const handleFormDataChange = (
     event: React.ChangeEvent<FormControlElement>,
-    fieldName: TFieldName
+    fieldName: TContactFormFieldName
   ) => {
     const newValue = (event?.target as HTMLInputElement)?.value;
     const newFormData: TContactFormData = { ...formData };
@@ -38,7 +45,10 @@ const ScreenContact = () => {
     setFormData({ ...newFormData });
   };
 
-  const fieldIsValid = (fieldValue: string, fieldName: TFieldName) => {
+  const fieldIsValid = (
+    fieldValue: string,
+    fieldName: TContactFormFieldName
+  ) => {
     const validEmailRegex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return fieldName === "email"
@@ -46,13 +56,34 @@ const ScreenContact = () => {
       : !!fieldValue;
   };
   const formIsValid = useMemo(
-    () =>
+    () => 
       fieldIsValid(formData?.name.value, "name") &&
       fieldIsValid(formData?.email.value, "email") &&
       fieldIsValid(formData?.subject.value, "subject") &&
       fieldIsValid(formData?.message.value, "message"),
     [formData]
   );
+
+  const handleFormSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!formIsBeingSubmitted && !!formIsValid) {
+      setFormIsBeingSubmitted(true);
+      const response = await submitContactDetails(formData);
+      setFormIsBeingSubmitted(false);
+      if (response?.success === true) {
+        toast.success(
+          "Thank you for sharing your details! We will get back to you in the next 24 hours.",
+          { autoClose: false }
+        );
+      } else {
+        toast.error(
+          "An error has occurred while attempting to submit your information",
+          { autoClose: 10*1000 }
+        );
+      }
+    }
+  };
 
   return (
     <>
@@ -63,7 +94,7 @@ const ScreenContact = () => {
               <div className="d-flex justify-content-start">
                 <h1 data-with-accent="left">{PAGES.CONTACT.title}</h1>
               </div>
-              <Form className="form-contact d-flex flex-column">
+              <Form className="form-contact d-flex flex-column" onSubmit={handleFormSubmit}>
                 <Form.Control
                   type={"text"}
                   placeholder={`Your Name`}
@@ -113,7 +144,10 @@ const ScreenContact = () => {
                     !fieldIsValid(formData?.message.value, "message")
                   }
                 />
-                <Button type="submit" disabled={!formIsValid}>
+                <Button
+                  type="submit"
+                  disabled={!formIsValid || formIsBeingSubmitted}
+                >
                   Send
                 </Button>
               </Form>

@@ -47,5 +47,6 @@ export const APPCONFIG = {
     HOME_CONTENT: "/api/v1/website/home-page-content/",
     TERMS: "/api/v1/content/terms-and-conditions/",
     PRIVACY: "/api/v1/content/privacy-policy/",
+    CONTACT: "/api/v1/website/contact-us/"
   },
 };
