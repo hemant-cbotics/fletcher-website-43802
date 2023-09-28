@@ -1,0 +1,118 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
+.page-contact {
+  background-color: $colorDarkBg;
+
+  .container {
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
+
+  h1 {
+    color: $colorWhite;
+    font-size: 34px;
+    @include fw(semibold);
+    letter-spacing: -1px;
+    line-height: 51px;
+    margin: 0 0 50px;
+  }
+}
+
+.form-contact {
+  max-width: 480px;
+  width: 100%;
+
+  > :nth-child(n + 2) {
+    margin-top: 15px;
+  }
+
+  .form-control {
+    background-color: $colorWhite;
+    border-color: transparent;
+    font-size: 16px;
+    height: 60px;
+
+    &:focus {
+      border-color: transparent;
+      box-shadow: 0 0 0 3px #FFFFFF66;
+    }
+  }
+
+  textarea.form-control {
+    height: 165px;
+    padding-bottom: 0.8em;
+    padding-top: 0.8em;
+  }
+
+  .btn {
+    background-color: $colorAccent;
+    border: 0;
+    color: $colorText;
+    font-size: 16px;
+    @include fw(semibold);
+    height: 50px;
+    margin: 50px 0 0;
+
+    &:hover {
+      background-color: $colorText;
+      color: $colorAccent;
+      box-shadow: 0 0 0 3px #FFFFFF66;
+    }
+  }
+}
+
+.contact-aside {
+  background-color: $colorAccent;
+  border-radius: 16px;
+  padding: 40px 30px;
+
+  .logo {
+    background: transparent url(../../assets/graphics/svg/contact-logo.svg) center center / contain no-repeat;
+    height: 72px;
+    max-width: 100%;
+    width: 304px;
+  }
+
+  h3 {
+    border-bottom: 1px solid $colorAccordionBg;
+    font-size: 24px;
+    @include fw(semibold);
+    line-height: 36px;
+    margin: 33px 0 25px;
+    padding: 0 0 10px;
+  }
+
+  a {
+    $size: 24px;
+    color: inherit;
+    display: table;
+    line-height: $size;
+    padding: 0 0 0 ($size + 12px);
+    position: relative;
+    text-decoration: none;
+
+    & + a {
+      margin-top: 20px;
+    }
+
+    &::before {
+      background: transparent none center center no-repeat;
+      content: '';
+      display: block;
+      height: $size;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $size;
+    }
+
+    &.link-website::before {
+      background-image: url(../../assets/graphics/svg/icon-globe.svg);
+    }
+
+    &.link-email::before {
+      background-image: url(../../assets/graphics/svg/icon-mail.svg);
+    }
+  }
+}

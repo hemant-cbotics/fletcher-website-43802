@@ -1,11 +1,11 @@
 import AppPageLayout from "../../components/layout/page";
-
-import "../../assets/styles/page-content.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { PAGES } from "../../appConfig";
 import { useEffect, useState } from "react";
 import { fetchContent } from "../../network/apis";
 import { toast } from "react-toastify";
+
+import "../../assets/styles/page-content.scss";
 
 const ScreenTerms = () => {
   const [pageData, setPageData] = useState<string>("");
