@@ -56,7 +56,7 @@ const ScreenContact = () => {
       : !!fieldValue;
   };
   const formIsValid = useMemo(
-    () => 
+    () =>
       fieldIsValid(formData?.name.value, "name") &&
       fieldIsValid(formData?.email.value, "email") &&
       fieldIsValid(formData?.subject.value, "subject") &&
@@ -64,7 +64,7 @@ const ScreenContact = () => {
     [formData]
   );
 
-  const handleFormSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!formIsBeingSubmitted && !!formIsValid) {
@@ -79,7 +79,7 @@ const ScreenContact = () => {
       } else {
         toast.error(
           "An error has occurred while attempting to submit your information",
-          { autoClose: 10*1000 }
+          { autoClose: 10 * 1000 }
         );
       }
     }
@@ -94,7 +94,10 @@ const ScreenContact = () => {
               <div className="d-flex justify-content-start">
                 <h1 data-with-accent="left">{PAGES.CONTACT.title}</h1>
               </div>
-              <Form className="form-contact d-flex flex-column" onSubmit={handleFormSubmit}>
+              <Form
+                className="form-contact d-flex flex-column"
+                onSubmit={handleFormSubmit}
+              >
                 <Form.Control
                   type={"text"}
                   placeholder={`Your Name`}
@@ -166,13 +169,17 @@ const ScreenContact = () => {
                     {email}
                   </a>
                 ))}
-                <a
-                  className="link-website"
-                  href={pageData?.website}
-                  target="_blank"
-                >
-                  {pageData?.website.replace("https://", "").replace(/\//g, "")}
-                </a>
+                {!!pageData?.website && (
+                  <a
+                    className="link-website"
+                    href={pageData?.website}
+                    target="_blank"
+                  >
+                    {pageData?.website
+                      .replace("https://", "")
+                      .replace(/\//g, "")}
+                  </a>
+                )}
               </aside>
             </Col>
           </Row>

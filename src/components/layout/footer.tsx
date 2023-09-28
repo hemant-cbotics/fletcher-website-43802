@@ -1,5 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 import { APPCONFIG } from "../../appConfig";
 import { ALL_GRAPHICS } from "../../assets";
 import { ROUTE_NAMES } from "../../utils/navigation/routeNames";
@@ -16,6 +17,7 @@ const AppFooter = () => {
             <a
               className="equal-side clickable"
               onClick={() => {
+                animateScroll.scrollToTop()
                 navigate(ROUTE_NAMES.homePage);
               }}
               title={`Fletcher`}

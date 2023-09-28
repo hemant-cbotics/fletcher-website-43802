@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-scroll";
+import { animateScroll, Link } from "react-scroll";
 
 type TAppNavBarLink = {
   title: string;
@@ -46,7 +46,10 @@ const AppNavBar = ({
               title={(link as TAppNavBarLink)?.title}
               onClick={() => {
                 const { route, onClick } = link as TAppNavBarLink;
-                if (!!route) navigate(route);
+                if (!!route) {
+                  animateScroll.scrollToTop()
+                  navigate(route);
+                }
                 else onClick?.();
               }}
             >

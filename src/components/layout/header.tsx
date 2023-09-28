@@ -17,6 +17,7 @@ const AppHeader = () => {
             <a
               className="equal-side clickable"
               onClick={() => {
+                animateScroll.scrollToTop()
                 navigate(ROUTE_NAMES.homePage);
               }}
               title={`Fletcher`}
@@ -39,7 +40,15 @@ const AppHeader = () => {
               />
             </div>
             <div className="equal-side">
-              <Button variant="secondary">Contact us</Button>
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  animateScroll.scrollToTop()
+                  navigate(ROUTE_NAMES.contactPage);
+                }}
+              >
+                Contact us
+              </Button>
             </div>
           </Col>
         </Row>
