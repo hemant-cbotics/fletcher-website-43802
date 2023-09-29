@@ -22,7 +22,7 @@
     .cards-wrap {
       margin-top: 77px;
 
-      .col {
+      [class*="col"] {
         &:nth-child(1) .card-icon {
           background-image: url(../../assets/graphics/svg/services-icon-1.svg);
         }

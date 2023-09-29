@@ -90,7 +90,7 @@ const ScreenContact = () => {
       <AppPageLayout pageName="contact">
         <Container>
           <Row>
-            <Col>
+            <Col lg={6}>
               <div className="d-flex justify-content-start">
                 <h1 data-with-accent="left">{PAGES.CONTACT.title}</h1>
               </div>
@@ -155,7 +155,8 @@ const ScreenContact = () => {
                 </Button>
               </Form>
             </Col>
-            <Col className="d-flex flex-column">
+            <Col lg={6} className="d-flex flex-column">
+              <div className="responsive-spacer d-lg-none mt-5 pt-5"></div>
               <aside className="contact-aside flex-grow-1">
                 <div className="logo"></div>
                 <h3>Contact Information</h3>

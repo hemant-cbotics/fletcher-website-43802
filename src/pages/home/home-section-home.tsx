@@ -21,6 +21,7 @@ const HomeSectionContentHome = () => {
         </h1>
         <p>{sectionData?.content}</p>
         <MobileAppCtas />
+        <div className="responsive-spacer d-lg-none mt-5 pt-5"></div>
       </Col>
       <Col className="d-flex flex-column justify-content-center">
         <div className="iphone">

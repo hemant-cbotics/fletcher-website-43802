@@ -13,7 +13,7 @@ const AppFooter = () => {
     <div id="footer">
       <Container>
         <Row>
-          <Col className="d-flex align-items-center justify-content-between">
+          <Col className="d-flex align-items-center justify-content-between flex-column flex-lg-row">
             <a
               className="equal-side clickable"
               onClick={() => {
