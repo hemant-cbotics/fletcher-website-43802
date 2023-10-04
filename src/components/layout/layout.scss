@@ -32,11 +32,14 @@
     border: 1px solid $colorDarkBorder;
     font-size: 18px;
     height: 47px;
-    width: 150px;
 
-    &:hover {
-      background-color: $colorAccent;
-      color: $colorText;
+    &.btn-contact {
+      width: 150px;
+
+      &:hover {
+        background-color: $colorAccent;
+        color: $colorText;
+      }
     }
   }
 }
@@ -74,5 +77,134 @@ nav#topnav {
     font-size: 12px;
     @include fw(semibold);
     line-height: 18px;
+  }
+}
+
+:root {
+  --mobile-drawer-width: 350px;
+  --mobile-drawer-padding: 20px;
+}
+
+@media screen and (max-width: 991px) {
+
+  #header {
+    .mobile-drawer .equal-side {
+      margin-top: 50px;
+      padding: var(--mobile-drawer-padding);
+      position: relative;
+      width: 100%;
+
+      &::before {
+        content: "";
+      }
+    }
+
+    .btn.btn-contact {
+      width: 100%;
+    }
+  }
+
+  .mobile {
+    &-header {
+      .btn.hamburger {
+        background: transparent url(../../assets/graphics/svg/icon-hamburger.svg) center center / contain no-repeat;
+        padding: 0;
+        width: 47px;
+      }
+    }
+
+    &-drawer {
+      background-color: $colorDarkBg;
+      border-left: 1px solid $colorDarkBorder;
+      box-shadow: 0 0 15px rgba($colorDarkBorder, 0.5);
+      display: flex;
+      max-height: 100vh;
+      max-width: calc(100vw - 50px);
+      min-height: 100vh;
+      position: fixed;
+      right: 0;
+      top: 0;
+      transform: translateX(100%);
+      transition: transform 0.15s ease;
+      width: var(--mobile-drawer-width);
+      z-index: 9999;
+
+      &-overlay {
+        background-color: rgba($colorDarkBg, 0.85);
+        bottom: 0;
+        content: "";
+        display: none;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 1000;
+      }
+
+      > .col {
+        padding-left: 0;
+      }
+
+      .site-logo {
+        display: none;
+      }
+
+      .has-topnav {
+        padding: var(--mobile-drawer-padding);
+        padding-bottom: 0;
+        width: 100%;
+      }
+
+      nav#topnav {
+        width: 100%;
+
+        a {
+          background-color: rgba($colorDarkBorder, 0.5);
+          border-radius: 5px;
+          font-size: 18px;
+          @include fw(regular);
+          height: 48px;
+          line-height: 48px;
+          text-align: center;
+
+          & + a {
+            margin: var(--mobile-drawer-padding) 0 0;
+          }
+        }
+      }
+    }
+  }
+  body.show-mobile-nav {
+    .mobile {
+      &-drawer {
+        transform: translateX(0);
+        transition: transform 0.25s ease;
+
+        &-overlay {
+          display: block;
+        }
+      }
+    }
+  }
+
+  #footer {
+    height: auto;
+
+    .copyright {
+      padding: 50px 0;
+    }
+  }
+
+  nav#bottomnav {
+    flex-direction: column;
+    width: 100%;
+
+    a {
+      text-align: center;
+
+      & + a {
+        margin: 20px 0 0;
+      }
+    }
   }
 }

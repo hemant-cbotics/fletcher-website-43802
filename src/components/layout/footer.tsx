@@ -24,7 +24,7 @@ const AppFooter = () => {
             >
               <ALL_GRAPHICS.Logo />
             </a>
-            <div className="flex-grow-1 d-flex justify-content-center">
+            <div className="flex-grow-1 d-flex justify-content-center mt-5 mt-lg-0">
               <AppNavBar
                 wrapperId="bottomnav"
                 links={APPCONFIG.NAVS.BOTTOMNAV}
